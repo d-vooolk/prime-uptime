@@ -1,0 +1,26 @@
+# Сторож домашнего сервера prime-home: если сайты не открываются, пишет в Telegram.
+# Beszel на самом сервере о его полном падении (свет, интернет) сообщить не может.
+name: uptime
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uptime
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Проверка сайтов
+        env:
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+        run: bash check.sh
