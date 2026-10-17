@@ -1,1 +1,1 @@
-down: https://test-down.prime-auto.by/
+up
