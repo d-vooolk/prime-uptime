@@ -7,7 +7,6 @@ URLS=(
   https://crm.prime-auto.by/
   https://prime-auto.by/
   https://vdf.by/
-  https://test-down.prime-auto.by/  # ТЕСТ, удалить
 )
 ATTEMPTS=3   # сайт считается недоступным, если не ответил 3 раза подряд
 PAUSE=30     # секунд между попытками
